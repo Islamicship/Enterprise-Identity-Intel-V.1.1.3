@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Tools Suite V11 | Pro Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <button class="nav-tab active" data-target="tab-extractor">🔍 Identity Intel</button>
+            <button class="nav-tab" data-target="tab-generator">🎲 Realistic ID</button>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: EXTRACTOR -->
+    <div id="tab-extractor" class="app-section active-section">
+        <div class="main-container">
+            <fieldset class="data-card shadow-2xl" id="outputCard" style="display: none;">
+                <legend class="badge">EXTRACTED CORE DATA</legend>
+                <div class="grid-layout">
+                    <div class="field-group">
+                        <label>Naam (Arabic)</label>
+                        <div class="wrapper"><textarea id="nameArabic" class="nastaleeq" readonly rows="1"></textarea><button class="prof-copy-btn" data-target="nameArabic"></button></div>
+                    </div>
+                    <div class="field-group">
+                        <label>Name (English)</label>
+                        <div class="wrapper"><input type="text" id="nameEnglish" readonly><button class="prof-copy-btn" data-target="nameEnglish"></button></div>
+                    </div>
+                    <div class="field-group">
+                        <label>Aqama Number</label>
+                        <div class="wrapper"><input type="text" id="aqamaNumber" readonly><button class="prof-copy-btn" data-target="aqamaNumber"></button></div>
+                    </div>
+                    <div class="field-group">
+                        <label>DOB (Hijri)</label>
+                        <div class="wrapper"><input type="text" id="dobHijri" readonly><button class="prof-copy-btn" data-target="dobHijri"></button></div>
+                    </div>
+                    <div class="field-group">
+                        <label>DOB (Gregorian)</label>
+                        <div class="wrapper"><input type="text" id="dobGregorian" maxlength="10" placeholder="DD/MM/YYYY"><button class="prof-copy-btn" data-target="dobGregorian"></button></div>
+                    </div>
+                    <div class="field-group full-width">
+                        <label class="section-label">Nationality Quick Toggle (Auto-Copy)</label>
+                        <div class="nat-pro-grid">
+                            <button type="button" class="nat-btn" data-en="Pakistan" data-ar="باكستان">Pakistan</button>
+                            <button type="button" class="nat-btn" data-en="India" data-ar="الهند">India</button>
+                            <button type="button" class="nat-btn" data-en="Nepal" data-ar="نيبال">Nepal</button>
+                            <button type="button" class="nat-btn" data-en="Bangladesh" data-ar="بنجلاديش">Bangladesh</button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="terminal-box shadow-lg">
+                <div class="terminal-header"><label>INPUT TERMINAL</label><button id="clearAllBtn" class="danger-btn">Clear All</button></div>
+                <textarea id="inputText" placeholder="Paste Arabic/English system text here..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2: GENERATOR -->
+    <div id="tab-generator" class="app-section" style="display: none;">
+        <div class="main-container">
+            <div class="gen-selection-header glass">
+                <div class="sel-group"><label>Country</label><select id="country-select" class="gen-dropdown"></select></div>
+                <div class="sel-group"><label>City / Region</label><select id="city-select" class="gen-dropdown"></select></div>
+            </div>
+
+            <div class="gen-grid">
+                <div class="gen-box"><label>ID NUMBER</label><div class="gen-content"><span id="g-id"></span><button class="prof-copy-btn" data-target="g-id"></button></div></div>
+                <div class="gen-box"><label>LICENSE NUMBER</label><div class="gen-content"><span id="g-lic"></span><button class="prof-copy-btn" data-target="g-lic"></button></div></div>
+                <div class="gen-box full-width"><label>FULL ADDRESS</label><div class="gen-content"><span id="g-addr"></span><button class="prof-copy-btn" data-target="g-addr"></button></div></div>
+                <div class="gen-box full-width">
+                    <label>CURRENT DATE & CALENDAR</label>
+                    <div class="gen-date-area">
+                        <span id="g-dual-date" class="dual-date-display"></span>
+                        <div class="action-controls">
+                            <div class="calendar-btn-pro" id="cal-box">
+                                <input type="date" id="g-cal-picker">
+                                <svg viewBox="0 0 24 24" class="cal-svg"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            </div>
+                            <button class="prof-copy-btn relative-btn" data-target="g-dual-date"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="main-generate-btn" class="gen-btn-prime">GENERATE NEW IDENTITY</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment-hijri@2.1.2/moment-hijri.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
